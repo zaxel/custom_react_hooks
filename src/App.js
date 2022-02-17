@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import useRequest from "./hooks/useRequest";
+import axios from 'axios';
 
 function App() {
+  const [todos, loading, error] = useRequest(fetchTodos)
+
+  function fetchTodos(){
+    return axios.get(`https://jsonplaceholder.typicode.com/todos`)
+    
+  }
+
+  if(loading){
+    return <h1>Loading</h1>
+  }
+  if(error){
+    return <h1 style={{color: 'red'}}>Some error has occurred</h1>
+  }
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {todos && todos.map(todo=>
+                <div className='todo' key={todo.id}>{todo.id} - {todo.title}</div>
+            )}
     </div>
   );
 }
