@@ -1,5 +1,5 @@
 # React Custom Hooks
-**`react`** application that has most usable examples of `custom hooks`.
+**`react`** application that includes some practical examples of `custom hooks`.
 
 ### five custom hooks in app:
 
@@ -13,5 +13,5 @@
 
 
 
->```this is most usable hooks that could be easily topped up with you features to more accurately fit you project.```
+>```these are the some useful hooks that can be easily customized with your features to more accurately fit your project.```
 
